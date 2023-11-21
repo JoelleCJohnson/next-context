@@ -1,5 +1,6 @@
 'use client' //if we use a hook, we must use client
 import { useContext } from "react"
+import { useRouter } from "next/navigation"
 import { AuthContext } from "@/context/AuthContext"
 
 
@@ -11,12 +12,15 @@ const defaultUser = {
 
 export default function Login() {
 
+    const router = useRouter()
+
     const { setUser } = useContext(AuthContext)
 
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault()
-        setUser(defaultUser)
+        await setUser(defaultUser)
+        router.push('/dashboard')
     }
 
 
