@@ -2,7 +2,7 @@
 import { useContext } from "react"
 import { useRouter } from "next/navigation"
 import { AuthContext } from "@/context/AuthContext"
-
+import CheckAuth from "../dashboard/CheckAuth"
 
 const defaultUser = {
     name: 'John Savin',
@@ -16,7 +16,6 @@ export default function Login() {
 
     const { setUser } = useContext(AuthContext)
 
-
     const handleLogin = async (e) => {
         e.preventDefault()
         await setUser(defaultUser)
@@ -29,6 +28,7 @@ export default function Login() {
             <div className="flex flex-col w-full md:w-1/2">
                 <div className="flex justify-center pt-12 md:justify-start md:pl-12 md:-mb-24">
                     <a href="#" className="p-4 text-xl font-bold text-white bg-black">
+                        <CheckAuth />
                         Design.
                     </a>
                 </div>
